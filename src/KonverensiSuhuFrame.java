@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+import java.awt.event.ItemEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
-/**
- *
- * @author ASUS
- */
 public class KonverensiSuhuFrame extends javax.swing.JFrame {
 
     /**
@@ -14,6 +12,25 @@ public class KonverensiSuhuFrame extends javax.swing.JFrame {
      */
     public KonverensiSuhuFrame() {
         initComponents();
+        // Set default pilihan
+          jRadioButton1.setSelected(true);
+        
+          JTextField1.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                KonversiOtomatis();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+               KonversiOtomatis();
+            }
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+               KonversiOtomatis();
+            }
+        });
+            setVisible(true);
+
     }
 
     /**
@@ -25,54 +42,85 @@ public class KonverensiSuhuFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        textField1 = new java.awt.TextField();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
-        textField2 = new java.awt.TextField();
+        JTextField1 = new javax.swing.JTextField();
+        JTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Masukkan Suhu : ");
 
         jButton1.setText("Konversi");
-
-        jButton2.setText("Keluar");
-
-        jLabel2.setText("Hasil Konversi");
-
-        textField1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
+        jButton2.setText("Keluar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Hasil Konversi");
+
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Dari Asal ke Tujuan");
+        jRadioButton1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton1ItemStateChanged(evt);
+            }
+        });
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
             }
         });
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Dari Tujuan ke Asal");
+        jRadioButton2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton2ItemStateChanged(evt);
+            }
+        });
+        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton2StateChanged(evt);
+            }
+        });
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celcius", "Fahrenheit", "Reamur", "Kelvin" }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celcius", "Fahrenheit", "Reamur", "Kelvin" }));
 
         jButton3.setText("Hapus");
-
-        textField2.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField2ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        JTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextField1ActionPerformed(evt);
             }
         });
 
@@ -81,43 +129,43 @@ public class KonverensiSuhuFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(188, 188, 188))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jRadioButton1)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(107, 107, 107)
                                 .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jButton1)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(66, 66, 66)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(112, 112, 112)
+                                    .addComponent(jLabel2))
+                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton2))
-                                    .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(76, 76, 76)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jRadioButton2))))
+                        .addGap(0, 81, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,22 +173,22 @@ public class KonverensiSuhuFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
@@ -167,17 +215,123 @@ public class KonverensiSuhuFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textField1ActionPerformed
-
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField2ActionPerformed
+         try {
+            double input = Double.parseDouble(JTextField1.getText());
+            String fromScale = jComboBox1.getSelectedItem().toString();
+            String toScale = jComboBox2.getSelectedItem().toString();
+            
+            if (jRadioButton1.isSelected()) {
+                double result = KonversiSuhu(input, fromScale, toScale);
+                JTextField2.setText(String.format("%.2f %s", result, getSymbol(toScale)));
+            } else if (jRadioButton2.isSelected()) {
+                double result = KonversiSuhu (input, toScale, fromScale);
+                JTextField2.setText(String.format("%.2f %s", result, getSymbol(fromScale)));
+            } else {
+                JOptionPane.showMessageDialog(this, "Pilih arah konversi!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Masukkan angka yang valid!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         JTextField1.setText("");
+         JTextField2.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jRadioButton2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton2StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2StateChanged
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton2ItemStateChanged
+        // TODO add your handling code here:
+        if (jRadioButton2.isSelected()) {
+        JTextField2.setText(""); 
+     }
+    }//GEN-LAST:event_jRadioButton2ItemStateChanged
+
+    private void JTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextField1ActionPerformed
+
+    private void jRadioButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton1ItemStateChanged
+        // TODO add your handling code here:
+        if (jRadioButton1.isSelected()) {
+        JTextField2.setText(""); 
+     }  
+    }//GEN-LAST:event_jRadioButton1ItemStateChanged
+    
+    private double KonversiSuhu(double input, String from, String to) {
+        double result = input;
+
+        if (from.equals("Celcius")) {
+            if (to.equals("Fahrenheit")) result = input * 9/5 + 32;
+            else if (to.equals("Reamur")) result = input * 4/5;
+            else if (to.equals("Kelvin")) result = input + 273.15;
+        } else if (from.equals("Fahrenheit")) {
+            if (to.equals("Celcius")) result = (input - 32) * 5/9;
+            else if (to.equals("Reamur")) result = (input - 32) * 4/9;
+            else if (to.equals("Kelvin")) result = (input - 32) * 5/9 + 273.15;
+        } else if (from.equals("Reamur")) {
+            if (to.equals("Celcius")) result = input * 5/4;
+            else if (to.equals("Fahrenheit")) result = input * 9/4 + 32;
+            else if (to.equals("Kelvin")) result = input * 5/4 + 273.15;
+        } else if (from.equals("Kelvin")) {
+            if (to.equals("Celcius")) result = input - 273.15;
+            else if (to.equals("Fahrenheit")) result = (input - 273.15) * 9/5 + 32;
+            else if (to.equals("Reamur")) result = (input - 273.15) * 4/5;
+        }
+
+        return result;
+    }
+
+   private String getSymbol(String scale) {
+        switch (scale) {
+            case "Celcius": return "°C";
+            case "Fahrenheit": return "°F";
+            case "Reamur": return "°Ré";
+            case "Kelvin": return "K";
+            default: return "";
+        }
+    }    
+   
+    private void KonversiOtomatis() {
+        try {
+            if (!JTextField1.getText().isEmpty()) {
+            double input = Double.parseDouble(JTextField1.getText());
+            String fromScale = jComboBox1.getSelectedItem().toString();
+            String toScale = jComboBox2.getSelectedItem().toString();
+
+            if (jRadioButton1.isSelected()) {
+                double result = KonversiSuhu(input, fromScale, toScale);
+                JTextField2.setText(String.format("%.2f %s", result, getSymbol(toScale)));
+            } else if (jRadioButton2.isSelected()) {
+                double result = KonversiSuhu(input, toScale, fromScale);
+                JTextField2.setText(String.format("%.2f %s", result, getSymbol(fromScale)));
+            }
+        } else {
+            JTextField2.setText("");
+        }
+    } catch (NumberFormatException ex) {
+        JTextField2.setText("");
+    }
+}
 
     /**
      * @param args the command line arguments
@@ -216,7 +370,9 @@ public class KonverensiSuhuFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JTextField JTextField1;
+    private javax.swing.JTextField JTextField2;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -227,7 +383,5 @@ public class KonverensiSuhuFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private java.awt.TextField textField1;
-    private java.awt.TextField textField2;
     // End of variables declaration//GEN-END:variables
 }
