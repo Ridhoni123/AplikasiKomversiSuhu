@@ -58,6 +58,7 @@ Aplikasi ini memungkinkan pengguna untuk:
 - Komponen GUI dan event listener didefinisikan untuk menangani interaksi pengguna.
 
 ## Pembuat Aplikasi
-Willy Rahman 2210010103
+Muhammad Ridhoni Ilham (2210010515)
 
 ## Demo
+![Demo GIF](https://github.com/Ridhoni123/AplikasiKomversiSuhu/blob/main/img/Recording%202024-11-10%20181514.gif)
